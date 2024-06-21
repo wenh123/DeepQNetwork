@@ -1,4 +1,4 @@
-[其他處理]
+//其他處理
 DataAccess 資料集前處理，包括針對石油黃金期貨進行時間序列插值法，以及產生一些資料集的圖片。
 Find Epochs Line 針對Epochs 進行連續訓練與測試並收集平均收益。
 Pearson 針對石油期貨、黃金期貨，與S&P500進行皮爾森相關性係數計算
@@ -8,7 +8,7 @@ bayesian 針對買入賣出超參數進行貝葉斯優化；以及Epochs Num也�
 TEST_Origin_DQN 測試原DQN的ROI，測試期間2019，資料集為S&P500+石油期貨+黃金期貨。
 TEST_Softmax_DQN 測試Softmax DQN的ROI，測試期間2019，資料集為S&P500+石油期貨+黃金期貨。
 
-[訓練與測試檔案]
+//訓練與測試檔案
 訓練與測試檔案一共16個，其中分為200 epochs與50 epochs 和2019與2010~2019。
 檔名Both = 資料集為S&P500+石油期貨+黃金期貨
 檔名Gold = 資料集為S&P500+黃金期貨
@@ -34,7 +34,7 @@ TEST_Softmax_DQN 測試Softmax DQN的ROI，測試期間2019，資料集為S&P500
 2010~2019測試，資料集為S&P500+石油期貨+黃金期貨，Epochs 200 DL_SP500_SPY_10K-ActCount-2010~2019-softmax2-Both
 2010~2019測試，資料集為S&P500+石油期貨+黃金期貨，Epochs 50 DL_SP500_SPY_10K-ActCount-2010~2019-softmax2-Both-50
 
-[Q網路NPZ檔案]
+//Q網路NPZ檔案
 npz檔案為訓練完成後的Q-Network檔案。
 Q_network_epoch_29~299.npz為Find Epochs Line時每次訓練儲存的結果，方便貝葉斯優化時取用，不用重新訓練節省時間。
 Softmax_DQN.npz 為TEST_Softmax_DQN訓練完成的檔案。
