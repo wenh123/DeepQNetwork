@@ -1,4 +1,3 @@
-Here is the English translation of the documentation:
 
 Data Processing and Analysis Components
 DataAccess: Performs dataset preprocessing, including time series interpolation for oil and gold futures, and generates dataset visualizations.
