@@ -1,46 +1,44 @@
-//其他處理  
-DataAccess 資料集前處理，包括針對石油黃金期貨進行時間序列插值法，以及產生一些資料集的圖片。  
-Find Epochs Line 針對Epochs 進行連續訓練與測試並收集平均收益。  
-Pearson 針對石油期貨、黃金期貨，與S&P500進行皮爾森相關性係數計算  
-spearmanr 針對石油期貨、黃金期貨，與S&P500進行斯皮爾曼等級相關性係數計算  
-kendalltau 針對石油期貨、黃金期貨，與S&P500進行肯德爾等級相關性係數計算  
-bayesian 針對買入賣出超參數進行貝葉斯優化；以及Epochs Num也進行超參數優化。  
-TEST_Origin_DQN 測試原DQN的ROI，測試期間2019，資料集為S&P500+石油期貨+黃金期貨。  
-TEST_Softmax_DQN 測試Softmax DQN的ROI，測試期間2019，資料集為S&P500+石油期貨+黃金期貨。  
+Here is the English translation of the documentation:
 
-//訓練與測試檔案  
-訓練與測試檔案一共16個，其中分為200 epochs與50 epochs 和2019與2010-2019。  
-檔名Both = 資料集為S&P500+石油期貨+黃金期貨  
-檔名Gold = 資料集為S&P500+黃金期貨  
-檔名WTI = 資料集為S&P500+石油期貨  
-檔名SPY = 資料集為S&P500  
-以下是2010-2018訓練，2019測試的檔案介紹:  
-2019測試，資料集為僅S&P500，Epochs 200 DL_SP500_SPY_10K-ActCount-2019-softmax2-SPY  
-2019測試，資料集為僅S&P500，Epochs 50 DL_SP500_SPY_10K-ActCount-2019-softmax2-SPY-50  
-2019測試，資料集為S&P500+石油期貨，Epochs 200 DL_SP500_SPY_10K-ActCount-2019-softmax2-SPY-WTI  
-2019測試，資料集為S&P500+石油期貨，Epochs 50 DL_SP500_SPY_10K-ActCount-2019-softmax2-SPY-WTI-50  
-2019測試，資料集為S&P500+黃金期貨，Epochs 200 DL_SP500_SPY_10K-ActCount-2019-softmax2-SPY-Gold  
-2019測試，資料集為S&P500+黃金期貨，Epochs 50 DL_SP500_SPY_10K-ActCount-2019-softmax2-SPY-Gold-50  
-2019測試，資料集為S&P500+石油期貨+黃金期貨，Epochs 200 DL_SP500_SPY_10K-ActCount-2019-softmax2-SPY-Both  
-2019測試，資料集為S&P500+石油期貨+黃金期貨，Epochs 50 DL_SP500_SPY_10K-ActCount-2019-softmax2-SPY-Both-50  
+Data Processing and Analysis Components
+DataAccess: Performs dataset preprocessing, including time series interpolation for oil and gold futures, and generates dataset visualizations.
 
-以下是2001-2010訓練，2010-2019測試的檔案介紹:  
-2010-2019測試，資料集為僅S&P500，Epochs 200 DL_SP500_SPY_10K-ActCount-2010-2019-softmax2-SPY  
-2010-2019測試，資料集為僅S&P500，Epochs 50 DL_SP500_SPY_10K-ActCount-2010-2019-softmax2-SPY-50  
-2010-2019測試，資料集為S&P500+石油期貨，Epochs 200 DL_SP500_SPY_10K-ActCount-2010-2019-softmax2-SPY-WTI  
-2010-2019測試，資料集為S&P500+石油期貨，Epochs 50 DL_SP500_SPY_10K-ActCount-2010-2019-softmax2-SPY-WTI-50  
-2010-2019測試，資料集為S&P500+黃金期貨，Epochs 200 DL_SP500_SPY_10K-ActCount-2010-2019-softmax2-SPY-Gold  
-2010-2019測試，資料集為S&P500+黃金期貨，Epochs 50 DL_SP500_SPY_10K-ActCount-2010-2019-softmax2-SPY-Gold-50  
-2010-2019測試，資料集為S&P500+石油期貨+黃金期貨，Epochs 200 DL_SP500_SPY_10K-ActCount-2010-2019-softmax2-Both  
-2010-2019測試，資料集為S&P500+石油期貨+黃金期貨，Epochs 50 DL_SP500_SPY_10K-ActCount-2010-2019-softmax2-Both-50  
+Find Epochs Line: Conducts continuous training and testing across epochs to collect average returns.
 
-//Q網路NPZ檔案  
-npz檔案為訓練完成後的Q-Network檔案。  
-Q_network_epoch_29-299.npz為Find Epochs Line時每次訓練儲存的結果，方便貝葉斯優化時取用，不用重新訓練節省時間。  
-Softmax_DQN.npz 為TEST_Softmax_DQN訓練完成的檔案。  
-Origin_DQN.npz 為TEST_Origin_DQN訓練完成的檔案。  
-其餘的會在檔名上有標示  
-例如:  
-2001_Both_ddqn_behavior_model.npz就是2001-2010訓練，2010-2019測試，資料集為S&P500+石油期貨+黃金期貨，ddqn的行為Q網路  
-2001_Both_ddqn_target_model.npz就是2001-2010訓練，2010-2019測試，資料集為S&P500+石油期貨+黃金期貨，ddqn的目標Q網路  
-2019_Both_dqn_model就是2010-2018訓練，2019測試，資料集為S&P500+石油期貨+黃金期貨，DQN的Q網路。  
+Correlation Analysis:
+- Pearson: Calculates Pearson correlation coefficients between oil futures, gold futures, and S&P500
+- Spearmanr: Computes Spearman rank correlation coefficients between oil futures, gold futures, and S&P500
+- Kendalltau: Determines Kendall rank correlation coefficients between oil futures, gold futures, and S&P500
+
+Optimization and Testing:
+Bayesian: Performs Bayesian optimization for buy/sell hyperparameters and epochs number optimization.
+TEST_Origin_DQN: Tests original DQN ROI for 2019 using S&P500, oil futures, and gold futures dataset.
+TEST_Softmax_DQN: Tests Softmax DQN ROI for 2019 using S&P500, oil futures, and gold futures dataset.
+
+Training and Testing Files
+The repository contains 16 training and testing files, divided between 200 and 50 epochs, covering periods 2019 and 2010-2019.
+
+File Naming Convention:
+- Both: Dataset includes S&P500 + oil futures + gold futures
+- Gold: Dataset includes S&P500 + gold futures
+- WTI: Dataset includes S&P500 + oil futures
+- SPY: Dataset includes only S&P500
+
+Training Period 2010-2018, Testing Period 2019:
+Files follow the naming pattern DL_SP500_SPY_10K-ActCount-2019-softmax2-[dataset]-[epochs], where [dataset] indicates the combination of assets used and [epochs] specifies either 200 or 50 epochs.
+
+Training Period 2001-2010, Testing Period 2010-2019:
+Files follow the naming pattern DL_SP500_SPY_10K-ActCount-2010-2019-softmax2-[dataset]-[epochs].
+
+Q-Network NPZ Files
+These files contain trained Q-Network parameters:
+- Q_network_epoch_29-299.npz: Stored results from Find Epochs Line for Bayesian optimization
+- Softmax_DQN.npz: Completed TEST_Softmax_DQN training file
+- Origin_DQN.npz: Completed TEST_Origin_DQN training file
+
+Additional NPZ files follow the naming convention:
+[year]_[dataset]_[network type]_[model type].npz
+Example:
+- 2001_Both_ddqn_behavior_model.npz: Behavior Q-network for 2001-2010 training period using full dataset
+- 2001_Both_ddqn_target_model.npz: Target Q-network for corresponding period and dataset
+- 2019_Both_dqn_model: DQN network for 2010-2018 training period using full dataset 
